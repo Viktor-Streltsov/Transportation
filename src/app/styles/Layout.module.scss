@@ -1,3 +1,5 @@
+
+
 .wrapperContent {
   width: 100%;
   display: flex;
@@ -8,7 +10,15 @@
 
 .header, .footer {
   width: 100%;
-  background: #fff;
+}
+
+.header {
+  position: absolute;
+  z-index: 5;
+}
+
+.footer {
+  background: #F3FFFD;
 }
 
 .conteiner {
@@ -16,4 +26,6 @@
   max-width: 1440px;
   margin: 0 auto;
   flex-grow: 1;
+  position: relative;
+  z-index: 1;
 }

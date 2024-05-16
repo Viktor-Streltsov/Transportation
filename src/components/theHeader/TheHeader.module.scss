@@ -8,10 +8,11 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
   padding: 24px 112px;
   font-size: 24px;
   line-height: 36px;
+  position: relative;
+  z-index: 5;
 
   @include laptop {
     flex-wrap: wrap;
@@ -61,10 +62,11 @@
   place-items: center;
   width: 87px;
   height: 34px;
-  background: rgba(241, 89, 43, 1);
+  background: #00CCA6;
   font-size: 14px;
   font-weight: 600;
   line-height: 14px;
   color: #fff;
+  border-radius: 15px;
 }
 

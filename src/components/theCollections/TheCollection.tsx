@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
-import ArrowRight from '@/components/theCriteria/icons/ArrowRight'
+import ArrowRight from '@/components/statistics/icons/ArrowRight'
 
 import 'slick-carousel/slick/slick.css'
 import './TheSlider.scss'

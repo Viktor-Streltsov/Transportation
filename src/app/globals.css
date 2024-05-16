@@ -26,8 +26,8 @@ body {
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
+    background: #F3FFFD;
     line-height: 1.5;
-    background: #fff;
 }
 
 ul,

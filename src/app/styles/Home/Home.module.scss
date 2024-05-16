@@ -1,31 +1,34 @@
 @import "../mixin";
 
-.wrapperOpenWorld {
+.ransformBlockOne {
   width: 100%;
   height: 778px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(1, 70, 89, 1);
+  background-image: url("../../../components/icons/cars.png");
   padding: 0 112px;
+  position: relative;
 }
 
-.wrapperCriteria {
+.shodow {
   width: 100%;
-  height: 613px;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  background: #00000080;
+}
+
+.Statistics {
+  width: 100%;
+  height: 300px;
   background: #fff;
   padding: 0 112px;
   margin: 40px 0;
 }
 
-.wrapperBestseller {
-  width: 100%;
-  height: 500px;
-  padding: 42px 112px;
-  margin-bottom: 80px;
-}
-
-.wrapperReceipts {
+.Product {
+  height: 1400px;
   margin-bottom: 80px;
   padding: 0 112px;
 }
