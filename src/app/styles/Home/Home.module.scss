@@ -33,19 +33,10 @@
   padding: 0 112px;
 }
 
-.wrapperOffers {
-  padding: 80px 112px;
-  background: rgba(241, 89, 43, 0.2);
-}
-
-.wrapperBooksSold, .wrapperCollection {
-  height: 500px;
+.wrapperCollection {
+  height: max-content;
   padding: 42px 112px;
   margin-bottom: 120px;
-}
-
-.wrapperCollection {
-  margin-bottom: 135px;
 }
 
 .wrapperComments {

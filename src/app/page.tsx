@@ -3,7 +3,7 @@
 import React, {useState} from 'react'
 import TransformBlockOne from '@/components/transformBlockOne/TransformBlockOne'
 import Product from '@/components/Product/Product'
-import TheCollection from '@/components/theCollections/TheCollection'
+import BlockTransport from '@/components/blockTransport/BlockTransport'
 import TheAddAplication from "@/components/theAddAplication/TheAddAplication";
 import Statistics from "@/components/statistics/Statistics";
 
@@ -32,7 +32,7 @@ const Home = () => {
 				<Product />
 			</section>
 			<section className={styles.wrapperCollection}>
-				<TheCollection />
+				<BlockTransport />
 			</section>
 			<section className={styles.wrapperRequest}>
 			</section>
