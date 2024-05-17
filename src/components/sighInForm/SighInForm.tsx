@@ -28,13 +28,13 @@ const SighInForm = () => {
 			<div className={styles.inputForm}>
 				<label className={styles.labelText} htmlFor='email'>Логин</label>
 				<input className={styles.inputText}
-					   type='email' name='email' id='email' placeholder={'you@company.com'} required
+					   type='email' name='email' id='email' required
 				/>
 			</div>
 			<div className={styles.inputForm}>
 				<label className={styles.labelText} htmlFor='password'>Пароль</label>
 				<input className={styles.inputText}
-					   type='password' name='password' id='password' placeholder={'**************'} required
+					   type='password' name='password' id='password' required
 				/>
 			</div>
 			<div className={styles.checkboxForm}>

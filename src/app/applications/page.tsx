@@ -2,6 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import styles from "@/app/styles/admin/Admin.module.scss";
+import Layout from "@/components/layout/Layout";
 
 interface Props {
     processed: boolean;
@@ -43,8 +44,6 @@ const PageApplications = () => {
         }
     };
 
-
-    console.log(applications)
     const handleSubmit = async (index: string) => {
         try {
             const formData = new FormData();
@@ -67,30 +66,32 @@ const PageApplications = () => {
     };
 
     return (
-        <div className={styles.wrapperAdmin}>
-            <h1 className={styles.nameAdmin}>Заявки пользователей</h1>
-            <ul className={styles.blockList}>
-                {applications.map((elem: any) => (
-                    <li key={elem.id} className={styles.infoList}>
-                        <div className={styles.blockInfo}>
-                            <h2 className={styles.name}>{elem.name}</h2>
-                            <p className={styles.email}>{elem.email}</p>
-                            <div className={styles.checboxInfo}>
-                                <div className={styles.checboxBlock}>
-                                    <input type='checkbox' name='processed' checked={elem.processed}
-                                           onClick={() => handleSubmit(elem.id)}
-                                           className={styles.checkbox}/>
-                                    <p className={styles.textInput}>
-                                        Подтверждение заявки
-                                    </p>
+        <Layout>
+            <div className={styles.wrapperAdmin}>
+                <h1 className={styles.nameAdmin}>Заявки пользователей</h1>
+                <ul className={styles.blockList}>
+                    {applications.map((elem: any) => (
+                        <li key={elem.id} className={styles.infoList}>
+                            <div className={styles.blockInfo}>
+                                <h2 className={styles.name}>{elem.name}</h2>
+                                <p className={styles.email}>{elem.email}</p>
+                                <div className={styles.checboxInfo}>
+                                    <div className={styles.checboxBlock}>
+                                        <input type='checkbox' name='processed' checked={elem.processed}
+                                               onClick={() => handleSubmit(elem.id)}
+                                               className={styles.checkbox}/>
+                                        <p className={styles.textInput}>
+                                            Подтверждение заявки
+                                        </p>
+                                    </div>
                                 </div>
+                                <button className={styles.delete} onClick={() => handleDelete(elem.id)}>Удалить</button>
                             </div>
-                            <button className={styles.delete} onClick={() => handleDelete(elem.id)}>Удалить</button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </Layout>
     );
 };
 

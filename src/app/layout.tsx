@@ -6,6 +6,7 @@ import { Providers } from '@/components/providers/Providers'
 
 import styles from './styles/Layout.module.scss'
 import './globals.css'
+import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
 	title: 'Next App',
@@ -21,15 +22,7 @@ export default function RootLayout({
 		<html lang='en'>
 		<body>
 		<Providers>
-			<div className={styles.wrapperContent}>
-				<div className={styles.header}>
-					<TheHeader />
-				</div>
-				<main className={styles.conteiner}>{children}</main>
-				<div className={styles.footer}>
-					<TheFooter />
-				</div>
-			</div>
+			<Layout isFooterHidden isHeaderHidden>{children}</Layout>
 		</Providers>
 		</body>
 		</html>
