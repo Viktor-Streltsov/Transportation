@@ -37,14 +37,16 @@
   height: max-content;
   padding: 42px 112px;
   margin-bottom: 120px;
+  position: relative;
 }
 
 .wrapperComments {
   height: 443px;
 }
 
-.wrapperRequest {
-  height: auto;
+.wrapperForm {
+  width: 1440px;
+  height: 1094px;
 }
 
 .listInfo {

@@ -10,6 +10,7 @@ import Statistics from "@/components/statistics/Statistics";
 
 import styles from './styles/Home/Home.module.scss'
 import classNames from "classnames";
+import BlockFotmAplication from "@/components/blockFotmAplication/BlockFotmAplication";
 
 
 const Home = () => {
@@ -34,7 +35,8 @@ const Home = () => {
 			<section className={styles.wrapperCollection}>
 				<BlockTransport />
 			</section>
-			<section className={styles.wrapperRequest}>
+			<section className={styles.wrapperForm}>
+				<BlockFotmAplication/>
 			</section>
 		</>
 	)
