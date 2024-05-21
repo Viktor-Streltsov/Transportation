@@ -7,9 +7,13 @@ import styles from './TheAddAplication.module.scss';
 
 interface Props {
     name: string;
+    email: string;
     phone: string;
-    paymentMethod: string;
-    delivery: boolean;
+    title: string;
+    image: string;
+    description: string;
+    toCountryId: string;
+    fromCountryId: string;
     processed: boolean;
 }
 
@@ -22,9 +26,13 @@ const TheAddAplication = ({onActive, active}: PropsActive) => {
     const session = useSession();
     const [newDirection, setNewDirection] = useState<Props>({
         name: '',
+        email: '',
         phone: '',
-        paymentMethod: '',
-        delivery: false,
+        title: '',
+        image: '',
+        description: '',
+        toCountryId: '',
+        fromCountryId: '',
         processed: false,
     });
 
@@ -45,10 +53,14 @@ const TheAddAplication = ({onActive, active}: PropsActive) => {
         try {
             const formData = new FormData();
             formData.append('name', newDirection.name);
+            formData.append('name', newDirection.email);
             formData.append('phone', newDirection.phone);
-            formData.append('paymentMethod', newDirection.paymentMethod);
-            formData.append('delivery', newDirection.delivery.toString());
+            formData.append('phone', newDirection.title);
+            formData.append('phone', newDirection.image);
+            formData.append('phone', newDirection.description);
             formData.append('processed', newDirection.processed.toString());
+            formData.append('processed', newDirection.toCountryId);
+            formData.append('processed', newDirection.fromCountryId);
 
             const response = await fetch('http://localhost:5000/api/application/', {
                 method: 'POST',
@@ -68,43 +80,48 @@ const TheAddAplication = ({onActive, active}: PropsActive) => {
     return (
         <div className={styles.componentApplication}>
                 <form className={styles.headerInput} onSubmit={handleSubmit}>
-                    <h2 className={styles.nameApplication}>Оформите покупку</h2>
+                    <h2 className={styles.nameApplication}>Оформите заявку</h2>
                     <div className={styles.inputsAdds}>
                         <div className={styles.inputForm}>
-                            <label className={styles.textInput}>ФИО:</label>
+                            <label className={styles.textInput}>Имя *</label>
                             <input type='text' name='name' value={newDirection.name} className={styles.inputs}
-                                   placeholder='Имя' onChange={handleChange}/>
+                                   placeholder='Полное имя * ' onChange={handleChange}/>
                         </div>
                         <div className={styles.inputForm}>
-                            <label className={styles.textInput}>Телефон:</label>
+                            <label className={styles.textInput}>Адрес электронной почты *</label>
+                            <input type='email' name='email' value={newDirection.email} className={styles.inputs}
+                                   placeholder='example@gmail.com  ' onChange={handleChange}/>
+                        </div>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Телефон *</label>
                             <input type='tel' name='phone' value={newDirection.phone} className={styles.inputs}
-                                   placeholder='телефон' onChange={handleChange}/>
+                                   placeholder='8(999)-000-00-00' onChange={handleChange}/>
                         </div>
                         <div className={styles.inputForm}>
-                            <label className={styles.textInput}>Оплата:</label>
-                            <select className={styles.inputs} name="paymentMethod" value={newDirection.paymentMethod}
-                                    onChange={handleChange}>
-                                <option className={styles.oprions} value="Банки"></option>
-                                <option className={styles.oprions} value="Мбанк">Мбанк</option>
-                                <option className={styles.oprions} value="Элкарт">Элкарт</option>
-                                <option className={styles.oprions} value="Viza">Viza</option>
-                            </select>
+                            <label className={styles.textInput}>Компания *</label>
+                            <input type='text' name='title' value={newDirection.title} className={styles.inputs}
+                                   placeholder='Компания' onChange={handleChange}/>
                         </div>
-                        <div className={styles.checboxInfo}>
-                            <input type='checkbox' name='delivery' value={'true'} className={styles.inputs}
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Картинка *</label>
+                            <input className={styles.imagesInput} type="file" name="image"
+                                   accept='/image/*, .png, .jpg, .web'
                                    onChange={handleChange}/>
-                            <p className={styles.textInput}>
-                                Доставка
-                            </p>
                         </div>
-                        <div className={styles.checboxInfo}>
-                            <div>
-                                <input type='checkbox' name='processed' value={'false'} required
-                                       onChange={handleChange} className={styles.checkbox}/>
-                            </div>
-                            <p className={styles.textInput}>
-                                Подтвердить покупку
-                            </p>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Текст *</label>
+                            <input type='text' name='description' value={newDirection.description} className={styles.inputs}
+                                   placeholder='Текст' onChange={handleChange}/>
+                        </div>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Куда *</label>
+                            <input type='number' name='toCountryId' value={newDirection.toCountryId} className={styles.inputs}
+                                   placeholder='Страна' onChange={handleChange}/>
+                        </div>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Откуда *</label>
+                            <input type='number' name='fromCountryId' value={newDirection.fromCountryId} className={styles.inputs}
+                                   placeholder='Страна' onChange={handleChange}/>
                         </div>
                     </div>
                     {

@@ -22,7 +22,7 @@ export default function RootLayout({
 		<html lang='en'>
 		<body>
 		<Providers>
-			<Layout isFooterHidden isHeaderHidden>{children}</Layout>
+			{children}
 		</Providers>
 		</body>
 		</html>

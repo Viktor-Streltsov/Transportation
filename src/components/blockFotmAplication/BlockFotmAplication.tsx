@@ -7,9 +7,13 @@ import {useSession} from "next-auth/react";
 
 interface Props {
     name: string;
+    email: string;
     phone: string;
-    paymentMethod: string;
-    delivery: boolean;
+    title: string;
+    image: string;
+    description: string;
+    toCountryId: string;
+    fromCountryId: string;
     processed: boolean;
 }
 
@@ -18,9 +22,13 @@ const BlockFotmAplication = () => {
     const session = useSession();
     const [newDirection, setNewDirection] = useState<Props>({
         name: '',
+        email: '',
         phone: '',
-        paymentMethod: '',
-        delivery: false,
+        title: '',
+        image: '',
+        description: '',
+        toCountryId: '',
+        fromCountryId: '',
         processed: false,
     });
 
@@ -37,10 +45,14 @@ const BlockFotmAplication = () => {
         try {
             const formData = new FormData();
             formData.append('name', newDirection.name);
+            formData.append('name', newDirection.email);
             formData.append('phone', newDirection.phone);
-            formData.append('paymentMethod', newDirection.paymentMethod);
-            formData.append('delivery', newDirection.delivery.toString());
+            formData.append('phone', newDirection.title);
+            formData.append('phone', newDirection.image);
+            formData.append('phone', newDirection.description);
             formData.append('processed', newDirection.processed.toString());
+            formData.append('processed', newDirection.toCountryId);
+            formData.append('processed', newDirection.fromCountryId);
 
             const response = await fetch('http://localhost:5000/api/application/', {
                 method: 'POST',
@@ -94,23 +106,44 @@ const BlockFotmAplication = () => {
                         </div>
                         <div className={styles.inputForm}>
                             <label className={styles.textInput}>Адрес электронной почты *</label>
-                            <input type='email' name='email' value={newDirection.phone} className={styles.inputs}
+                            <input type='email' name='email' value={newDirection.email} className={styles.inputs}
                                    placeholder='example@gmail.com  ' onChange={handleChange}/>
-                        </div>
-                        <div className={styles.inputForm}>
-                            <label className={styles.textInput}>Компания *</label>
-                            <input type='text' name='Компания' value={newDirection.phone} className={styles.inputs}
-                                   placeholder='ООО “Ромашка”' onChange={handleChange}/>
                         </div>
                         <div className={styles.inputForm}>
                             <label className={styles.textInput}>Телефон *</label>
                             <input type='tel' name='phone' value={newDirection.phone} className={styles.inputs}
                                    placeholder='8(999)-000-00-00' onChange={handleChange}/>
                         </div>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Компания *</label>
+                            <input type='text' name='title' value={newDirection.title} className={styles.inputs}
+                                   placeholder='Компания' onChange={handleChange}/>
+                        </div>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Картинка *</label>
+                            <input className={styles.imagesInput} type="file" name="image"
+                                   accept='/image/*, .png, .jpg, .web'
+                                   onChange={handleChange}/>
+                        </div>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Текст *</label>
+                            <input type='text' name='description' value={newDirection.description} className={styles.inputs}
+                                   placeholder='Текст' onChange={handleChange}/>
+                        </div>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Куда *</label>
+                            <input type='number' name='toCountryId' value={newDirection.toCountryId} className={styles.inputs}
+                                   placeholder='Страна' onChange={handleChange}/>
+                        </div>
+                        <div className={styles.inputForm}>
+                            <label className={styles.textInput}>Откуда *</label>
+                            <input type='number' name='fromCountryId' value={newDirection.fromCountryId} className={styles.inputs}
+                                   placeholder='Страна' onChange={handleChange}/>
+                        </div>
                     </div>
                     {
-                        !session?.data ? <button className={styles.submit}>Отправить</button> :
-                            <div className={styles.warning}>Для того что бы купить книгу вы должны
+                        session?.data ? <button className={styles.submit}>Отправить</button> :
+                            <div className={styles.warning}>Для того что бы отправить заявку вы должны
                                 авторизоваться</div>
                     }
                 </form>

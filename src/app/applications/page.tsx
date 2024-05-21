@@ -66,7 +66,7 @@ const PageApplications = () => {
     };
 
     return (
-        <Layout>
+        <Layout isFooterHidden>
             <div className={styles.wrapperAdmin}>
                 <h1 className={styles.nameAdmin}>Заявки пользователей</h1>
                 <ul className={styles.blockList}>

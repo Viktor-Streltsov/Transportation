@@ -19,7 +19,7 @@ const SighInForm = () => {
 		})
 
 		if (res) {
-			router.push('/')
+			router.push('/admin')
 		}
 
 	}
